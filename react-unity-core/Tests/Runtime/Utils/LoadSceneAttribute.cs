@@ -26,21 +26,13 @@ namespace ReactUnity.Tests
         public static IEnumerator Initialize(string scene)
         {
             Debug.Assert(scene.FastEndsWith(".unity"), "The scene file must be an absolue path ending with .unity");
-#if UNITY_EDITOR
-            yield return UnityEditor.SceneManagement.EditorSceneManager.LoadSceneAsyncInPlayMode(scene, new LoadSceneParameters(LoadSceneMode.Single));
-#else
             yield return SceneManager.LoadSceneAsync(scene);
-#endif
         }
 
         public static IEnumerator TearDown(string scene)
         {
             Debug.Assert(scene.FastEndsWith(".unity"), "The scene file must be an absolue path ending with .unity");
-#if UNITY_EDITOR
-            yield return UnityEditor.SceneManagement.EditorSceneManager.UnloadSceneAsync(scene);
-#else
             yield return SceneManager.UnloadSceneAsync(scene);
-#endif
         }
 
         public virtual IEnumerator AfterTest(ITest test)

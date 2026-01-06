@@ -3,7 +3,6 @@
   <Project Path="ReactUnity.UGUI.csproj" />
   <Project Path="ReactUnity.UIToolkit.csproj" />
   <Project Path="LibYoga.csproj" />
-  <Project Path="ReactUnity.Tests.Editor.csproj" />
   <Project Path="ReactUnity.Tests.csproj" />
   <Project Path="ReactUnity.Editor.csproj" />
   <Project Path="ReactUnity.Tests.Performance.csproj" />

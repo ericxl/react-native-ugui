@@ -87,54 +87,10 @@ namespace ReactUnity.Tests
         }
 
         #region Test Debug Toggle
-#if UNITY_EDITOR && REACT_UNITY_DEVELOPER
-        const string MenuName = "React/Tests/Debug Tests";
-        public static bool IsDebugEnabled
-        {
-            get => UnityEditor.EditorPrefs.GetBool(MenuName, false);
-            set => UnityEditor.EditorPrefs.SetBool(MenuName, value);
-        }
-
-        [UnityEditor.MenuItem(MenuName)]
-        private static void ToggleTests()
-        {
-            IsDebugEnabled = !IsDebugEnabled;
-        }
-
-        [UnityEditor.MenuItem(MenuName, true)]
-        private static bool ToggleTestsValidate()
-        {
-            UnityEditor.Menu.SetChecked(MenuName, IsDebugEnabled);
-            return true;
-        }
-#else
         public static bool IsDebugEnabled { get; set; } = false;
-#endif
         #endregion
 
-#if UNITY_EDITOR && REACT_UNITY_DEVELOPER
-        const string SnapshotsMenuName = "React/Tests/Overwrite Snapshots";
-        private static bool OverwriteSnapshots
-        {
-            get => UnityEditor.EditorPrefs.GetBool(SnapshotsMenuName, false);
-            set => UnityEditor.EditorPrefs.SetBool(SnapshotsMenuName, value);
-        }
-
-        [UnityEditor.MenuItem(SnapshotsMenuName)]
-        private static void ToggleOverwriteSnapshots()
-        {
-            OverwriteSnapshots = !OverwriteSnapshots;
-        }
-
-        [UnityEditor.MenuItem(SnapshotsMenuName, true)]
-        private static bool ToggleOverwriteSnapshotsValidate()
-        {
-            UnityEditor.Menu.SetChecked(SnapshotsMenuName, OverwriteSnapshots);
-            return true;
-        }
-#else
         private static bool OverwriteSnapshots { get; set; } = false;
-#endif
 
         public static bool ShouldOverwriteSnapshots
         {

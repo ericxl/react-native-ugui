@@ -4,6 +4,7 @@
       "Bash(find:*)",
       "Bash(tree:*)",
       "Bash(grep:*)",
+      "Bash(ls:*)",
       "Bash(pnpm test:*)",
       "Bash(xargs cat:*)",
       "Bash(pnpm build:*)",
