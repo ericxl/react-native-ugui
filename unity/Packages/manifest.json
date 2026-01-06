@@ -3,7 +3,7 @@
     "com.reactunity.core"
   ],
   "dependencies": {
-    "com.reactunity.core": "file:../../react-unity-core",
+    "com.reactunity.core": "file:../../react-unity-core-upm",
     "com.reactunity.quickjs": "https://github.com/ReactUnity/quickjs.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.cinemachine": "3.1.4",

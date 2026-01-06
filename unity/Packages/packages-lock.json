@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.reactunity.core": {
-      "version": "file:../../react-unity-core",
+      "version": "file:../../react-unity-core-upm",
       "depth": 0,
       "source": "local",
       "dependencies": {
