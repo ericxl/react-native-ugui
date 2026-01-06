@@ -1,6 +1,6 @@
 //
 // Types in assemblies: ReactUnity, ReactUnity.Editor, ReactUnity.UGUI, ReactUnity.UIToolkit
-// Generated 01/07/2025 01:03:16
+// Generated 1/5/2026 10:40:46 PM
 //
 /* eslint-disable */
 
@@ -401,6 +401,7 @@ export declare namespace ReactUnity {
     enabled: boolean;
     isActiveAndEnabled: boolean;
     transform: UnityEngine.Transform;
+    transformHandle: UnityEngine.TransformHandle;
     gameObject: UnityEngine.GameObject;
     tag: string;
     rigidbody: UnityEngine.Component;
@@ -463,6 +464,7 @@ export declare namespace ReactUnity {
     BroadcastMessage(methodName: string, parameter: any): void;
     BroadcastMessage(methodName: string): void;
     BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+    GetEntityId(): UnityEngine.EntityId;
     GetInstanceID(): number;
     GetHashCode(): number;
     Equals(other: any): boolean;
@@ -752,6 +754,7 @@ export declare namespace ReactUnity {
       MoveNextTarget(): boolean;
       ResetTarget(): void;
       SetDirty(): void;
+      GetEntityId(): UnityEngine.EntityId;
       GetInstanceID(): number;
       GetHashCode(): number;
       Equals(other: any): boolean;
@@ -876,6 +879,7 @@ export declare namespace ReactUnity {
       SendEvent(e: UnityEngine.Event): boolean;
       GetExtraPaneTypes(): System.Collections.Generic.IEnumerable<System.Type>;
       SetDirty(): void;
+      GetEntityId(): UnityEngine.EntityId;
       GetInstanceID(): number;
       GetHashCode(): number;
       Equals(other: any): boolean;
@@ -968,6 +972,7 @@ export declare namespace ReactUnity {
       SendEvent(e: UnityEngine.Event): boolean;
       GetExtraPaneTypes(): System.Collections.Generic.IEnumerable<System.Type>;
       SetDirty(): void;
+      GetEntityId(): UnityEngine.EntityId;
       GetInstanceID(): number;
       GetHashCode(): number;
       Equals(other: any): boolean;
@@ -1007,6 +1012,7 @@ export declare namespace ReactUnity {
       MoveNextTarget(): boolean;
       ResetTarget(): void;
       SetDirty(): void;
+      GetEntityId(): UnityEngine.EntityId;
       GetInstanceID(): number;
       GetHashCode(): number;
       Equals(other: any): boolean;
@@ -1338,6 +1344,7 @@ export declare namespace ReactUnity {
         SendEvent(e: UnityEngine.Event): boolean;
         GetExtraPaneTypes(): System.Collections.Generic.IEnumerable<System.Type>;
         SetDirty(): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -1376,6 +1383,7 @@ export declare namespace ReactUnity {
         MoveNextTarget(): boolean;
         ResetTarget(): void;
         SetDirty(): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -1453,6 +1461,7 @@ export declare namespace ReactUnity {
         SendEvent(e: UnityEngine.Event): boolean;
         GetExtraPaneTypes(): System.Collections.Generic.IEnumerable<System.Type>;
         SetDirty(): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -1632,6 +1641,7 @@ export declare namespace ReactUnity {
         SendEvent(e: UnityEngine.Event): boolean;
         GetExtraPaneTypes(): System.Collections.Generic.IEnumerable<System.Type>;
         SetDirty(): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -1661,6 +1671,14 @@ export declare namespace ReactUnity {
         worldBound: UnityEngine.Rect;
         localBound: UnityEngine.Rect;
         worldTransform: UnityEngine.Matrix4x4;
+        hasActivePseudoState: boolean;
+        hasInactivePseudoState: boolean;
+        hasHoverPseudoState: boolean;
+        hasCheckedPseudoState: boolean;
+        hasEnabledPseudoState: boolean;
+        hasDisabledPseudoState: boolean;
+        hasFocusPseudoState: boolean;
+        hasRootPseudoState: boolean;
         pickingMode: UnityEngine.UIElements.PickingMode;
         name: string;
         enabledInHierarchy: boolean;
@@ -1696,10 +1714,13 @@ export declare namespace ReactUnity {
         Close(): void;
         ResolveStyle(): void;
         static ResolveStyle(context: ReactUnity.Editor.Renderer.EditorContext, window: any, style: UnityEngine.UIElements.IStyle): void;
+        SetActivePseudoState(value: boolean): void;
+        SetCheckedPseudoState(value: boolean): void;
         Focus(): void;
         SendEvent(e: UnityEngine.UIElements.EventBase): void;
         SetEnabled(value: boolean): void;
         MarkDirtyRepaint(): void;
+        IsMarkedForRepaint(): boolean;
         ContainsPoint(localPoint: UnityEngine.Vector2): boolean;
         Overlaps(rectangle: UnityEngine.Rect): boolean;
         ToString(): string;
@@ -1714,6 +1735,7 @@ export declare namespace ReactUnity {
         SetBinding(bindingId: UnityEngine.UIElements.BindingId, binding: UnityEngine.UIElements.Binding): void;
         GetBinding(bindingId: UnityEngine.UIElements.BindingId): UnityEngine.UIElements.Binding;
         GetBindingInfos(): System.Collections.Generic.IEnumerable<UnityEngine.UIElements.BindingInfo>;
+        GetBindingInfos(bindingInfos: UnityEngine.UIElements.BindingInfo[]): void;
         HasBinding(bindingId: UnityEngine.UIElements.BindingId): boolean;
         ClearBinding(bindingId: UnityEngine.UIElements.BindingId): void;
         ClearBindings(): void;
@@ -2041,6 +2063,14 @@ export declare namespace ReactUnity {
         worldBound: UnityEngine.Rect;
         localBound: UnityEngine.Rect;
         worldTransform: UnityEngine.Matrix4x4;
+        hasActivePseudoState: boolean;
+        hasInactivePseudoState: boolean;
+        hasHoverPseudoState: boolean;
+        hasCheckedPseudoState: boolean;
+        hasEnabledPseudoState: boolean;
+        hasDisabledPseudoState: boolean;
+        hasFocusPseudoState: boolean;
+        hasRootPseudoState: boolean;
         pickingMode: UnityEngine.UIElements.PickingMode;
         name: string;
         enabledInHierarchy: boolean;
@@ -2073,10 +2103,13 @@ export declare namespace ReactUnity {
         Run(): void;
         Destroy(): void;
         Restart(): void;
+        SetActivePseudoState(value: boolean): void;
+        SetCheckedPseudoState(value: boolean): void;
         Focus(): void;
         SendEvent(e: UnityEngine.UIElements.EventBase): void;
         SetEnabled(value: boolean): void;
         MarkDirtyRepaint(): void;
+        IsMarkedForRepaint(): boolean;
         ContainsPoint(localPoint: UnityEngine.Vector2): boolean;
         Overlaps(rectangle: UnityEngine.Rect): boolean;
         ToString(): string;
@@ -2091,6 +2124,7 @@ export declare namespace ReactUnity {
         SetBinding(bindingId: UnityEngine.UIElements.BindingId, binding: UnityEngine.UIElements.Binding): void;
         GetBinding(bindingId: UnityEngine.UIElements.BindingId): UnityEngine.UIElements.Binding;
         GetBindingInfos(): System.Collections.Generic.IEnumerable<UnityEngine.UIElements.BindingInfo>;
+        GetBindingInfos(bindingInfos: UnityEngine.UIElements.BindingInfo[]): void;
         HasBinding(bindingId: UnityEngine.UIElements.BindingId): boolean;
         ClearBinding(bindingId: UnityEngine.UIElements.BindingId): void;
         ClearBindings(): void;
@@ -2236,7 +2270,6 @@ export declare namespace ReactUnity {
       IsReadOnly: boolean;
       BindSerializableDictionary(dict: ReactUnity.Helpers.SerializableDictionary, isSerializing: boolean): void;
       UpdateStringObjectDictionary(dict: ReactUnity.Reactive.ReactiveRecord<any>, isSerializing: boolean): void;
-      OnExposedToScriptCode(engine: any): void;
       Set(key: string, value: any): void;
       SetWithoutNotify(key: string, value: any): void;
       Add(key: string, value: any): void;
@@ -2330,7 +2363,6 @@ export declare namespace ReactUnity {
       OnAfterDeserialize(): void;
       OnBeforeSerialize(): void;
       AddReserializeListener(callback: ((obj: ReactUnity.Helpers.SerializableDictionary) => void)): (() => void);
-      OnExposedToScriptCode(engine: any): void;
       Set(key: string, value: any): void;
       SetWithoutNotify(key: string, value: any): void;
       Add(key: string, value: any): void;
@@ -2605,7 +2637,6 @@ export declare namespace ReactUnity {
       Values: System.Collections.Generic.ICollection<T>;
       Count: number;
       IsReadOnly: boolean;
-      OnExposedToScriptCode(engine: any): void;
       Add(key: string, value: any): void;
       Add(item: System.Collections.Generic.KeyValuePair<string, any>): void;
       Contains(item: System.Collections.Generic.KeyValuePair<string, any>): boolean;
@@ -2672,7 +2703,6 @@ export declare namespace ReactUnity {
       Values: System.Collections.Generic.ICollection<any>;
       Count: number;
       IsReadOnly: boolean;
-      OnExposedToScriptCode(engine: any): void;
       Set(key: string, value: any): void;
       SetWithoutNotify(key: string, value: any): void;
       Add(key: string, value: any): void;
@@ -2790,6 +2820,7 @@ export declare namespace ReactUnity {
       enabled: boolean;
       isActiveAndEnabled: boolean;
       transform: UnityEngine.Transform;
+      transformHandle: UnityEngine.TransformHandle;
       gameObject: UnityEngine.GameObject;
       tag: string;
       rigidbody: UnityEngine.Component;
@@ -2849,6 +2880,7 @@ export declare namespace ReactUnity {
       BroadcastMessage(methodName: string, parameter: any): void;
       BroadcastMessage(methodName: string): void;
       BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+      GetEntityId(): UnityEngine.EntityId;
       GetInstanceID(): number;
       GetHashCode(): number;
       Equals(other: any): boolean;
@@ -2948,6 +2980,7 @@ export declare namespace ReactUnity {
       enabled: boolean;
       isActiveAndEnabled: boolean;
       transform: UnityEngine.Transform;
+      transformHandle: UnityEngine.TransformHandle;
       gameObject: UnityEngine.GameObject;
       tag: string;
       rigidbody: UnityEngine.Component;
@@ -3007,6 +3040,7 @@ export declare namespace ReactUnity {
       BroadcastMessage(methodName: string, parameter: any): void;
       BroadcastMessage(methodName: string): void;
       BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+      GetEntityId(): UnityEngine.EntityId;
       GetInstanceID(): number;
       GetHashCode(): number;
       Equals(other: any): boolean;
@@ -3062,41 +3096,6 @@ export declare namespace ReactUnity {
     }
   }
   export namespace Scripting {
-    export class ClearScriptEngine {
-      constructor(context: ReactUnity.ReactContext, debug: boolean, awaitDebugger: boolean);
-      Key: string;
-      Capabilities: ReactUnity.Scripting.EngineCapabilities;
-      Runtime: any; // Microsoft.ClearScript.V8.V8Runtime
-      Engine: any; // Microsoft.ClearScript.V8.V8ScriptEngine
-      NativeEngine: any; // System.Object
-      Evaluate(code: string, fileName?: string): any;
-      Execute(code: string, fileName?: string, documentType?: ReactUnity.Scripting.JavascriptDocumentType): void;
-      TryExecute(code: string, fileName?: string, documentType?: ReactUnity.Scripting.JavascriptDocumentType): System.Exception;
-      GetGlobal(key: string): any;
-      DeleteGlobal(key: string): void;
-      CreateTypeReference(type: System.Type): any;
-      CreateNamespaceReference(ns: string, ...assemblies: System.Reflection.Assembly[]): any;
-      CreateScriptObject(props: System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, any>>): any;
-      Dispose(): void;
-      TraverseScriptArray(obj: any): System.Collections.Generic.IEnumerable<any>;
-      TraverseScriptObject(obj: any): System.Collections.Generic.IEnumerator<System.Collections.Generic.KeyValuePair<string, any>>;
-      IsScriptObject(obj: any): boolean;
-      Update(): void;
-      static DocumentContextCallback(info: any): System.Collections.Generic.IDictionary;
-      Equals(obj: any): boolean;
-      GetHashCode(): number;
-      GetType(): System.Type;
-      ToString(): string;
-    }
-    export class ClearScriptEngineFactory {
-      constructor();
-      EngineType: ReactUnity.Scripting.JavascriptEngineType;
-      Create(context: ReactUnity.ReactContext, debug: boolean, awaitDebugger: boolean, onInitialize: ((obj: ReactUnity.Scripting.IJavaScriptEngine) => void)): ReactUnity.Scripting.IJavaScriptEngine;
-      Equals(obj: any): boolean;
-      GetHashCode(): number;
-      GetType(): System.Type;
-      ToString(): string;
-    }
     export enum EngineCapabilities {
       None = 0,
       Fetch = 1,
@@ -3141,47 +3140,6 @@ export declare namespace ReactUnity {
     export interface IJavaScriptEngineFactory {
       EngineType: ReactUnity.Scripting.JavascriptEngineType;
       Create(context: ReactUnity.ReactContext, debug: boolean, awaitDebugger: boolean, onInitialize: ((obj: ReactUnity.Scripting.IJavaScriptEngine) => void)): ReactUnity.Scripting.IJavaScriptEngine;
-    }
-    export class JintEngine {
-      constructor(context: ReactUnity.ReactContext, debug: boolean, awaitDebugger: boolean);
-      Key: string;
-      Engine: any; // Jint.Engine
-      NativeEngine: any; // System.Object
-      Capabilities: ReactUnity.Scripting.EngineCapabilities;
-      Evaluate(code: string, fileName?: string): any;
-      Execute(code: string, fileName?: string, documentType?: ReactUnity.Scripting.JavascriptDocumentType): void;
-      TryExecute(code: string, fileName?: string, documentType?: ReactUnity.Scripting.JavascriptDocumentType): System.Exception;
-      GetGlobal(key: string): any;
-      DeleteGlobal(key: string): void;
-      CreateTypeReference(type: System.Type): any;
-      CreateNamespaceReference(ns: string, ...assemblies: System.Reflection.Assembly[]): any;
-      CreateScriptObject(props: System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, any>>): any;
-      Dispose(): void;
-      TraverseScriptArray(obj: any): System.Collections.Generic.IEnumerable<any>;
-      TraverseScriptObject(obj: any): System.Collections.Generic.IEnumerator<System.Collections.Generic.KeyValuePair<string, any>>;
-      IsScriptObject(obj: any): boolean;
-      Update(): void;
-      Equals(obj: any): boolean;
-      GetHashCode(): number;
-      GetType(): System.Type;
-      ToString(): string;
-    }
-    export class JintEngineFactory {
-      constructor();
-      EngineType: ReactUnity.Scripting.JavascriptEngineType;
-      Create(context: ReactUnity.ReactContext, debug: boolean, awaitDebugger: boolean, onInitialize: ((obj: ReactUnity.Scripting.IJavaScriptEngine) => void)): ReactUnity.Scripting.IJavaScriptEngine;
-      Equals(obj: any): boolean;
-      GetHashCode(): number;
-      GetType(): System.Type;
-      ToString(): string;
-    }
-    export class JintTypeConverter {
-      constructor(context: ReactUnity.ReactContext, engine: any);
-      Convert(value: any, type: System.Type, formatProvider: System.IFormatProvider): any;
-      Equals(obj: any): boolean;
-      GetHashCode(): number;
-      GetType(): System.Type;
-      ToString(): string;
     }
     export class QuickJSApiBridge {
       constructor();
@@ -3332,7 +3290,7 @@ export declare namespace ReactUnity {
       EngineType: ReactUnity.Scripting.JavascriptEngineType;
       EngineFactory: ReactUnity.Scripting.IJavaScriptEngineFactory;
       RunMainScript(script: string, beforeStart?: (() => void), afterStart?: (() => void)): void;
-      Initialize(callback: (() => void)): void;
+      Initialize(callback: (() => System.Exception)): void;
       JsonParse(str: string): any;
       ExecuteScript(code: string, fileName?: string, documentType?: ReactUnity.Scripting.JavascriptDocumentType): void;
       EvaluateScript(code: string, fileName?: string): any;
@@ -3367,19 +3325,6 @@ export declare namespace ReactUnity {
       Equals(obj: any): boolean;
       GetHashCode(): number;
       GetType(): System.Type;
-    }
-    export class ClearScriptEngine_DocumentLoader {
-      constructor(ctx: ReactUnity.ReactContext);
-      MaxCacheSize: number;
-      LoadDocumentAsync(settings: any, sourceInfo: any | undefined, specifier: string, category: any, contextCallback: ((info: any) => Record<string, any>)): System.Threading.Tasks.Task<any>;
-      GetCachedDocument(uri: System.Uri): any;
-      CacheDocument(document: any, replace: boolean): any;
-      DiscardCachedDocuments(): void;
-      LoadDocument(settings: any, sourceInfo: any | undefined, specifier: string, category: any, contextCallback: ((info: any) => Record<string, any>)): any;
-      Equals(obj: any): boolean;
-      GetHashCode(): number;
-      GetType(): System.Type;
-      ToString(): string;
     }
     export namespace DomProxies {
       export class ConsoleProxy {
@@ -4033,6 +3978,7 @@ export declare namespace ReactUnity {
       name: string;
       hideFlags: UnityEngine.HideFlags;
       SetDirty(): void;
+      GetEntityId(): UnityEngine.EntityId;
       GetInstanceID(): number;
       GetHashCode(): number;
       Equals(other: any): boolean;
@@ -4090,6 +4036,7 @@ export declare namespace ReactUnity {
       Name: string;
       Cursors: ReactUnity.Styling.CursorRecord;
       SetDirty(): void;
+      GetEntityId(): UnityEngine.EntityId;
       GetInstanceID(): number;
       GetHashCode(): number;
       Equals(other: any): boolean;
@@ -4148,6 +4095,7 @@ export declare namespace ReactUnity {
       ConvertTextContent(text: string): string;
       GenerateCharactersFromCharacterMap(): void;
       SetDirty(): void;
+      GetEntityId(): UnityEngine.EntityId;
       GetInstanceID(): number;
       GetHashCode(): number;
       Equals(other: any): boolean;
@@ -4161,7 +4109,6 @@ export declare namespace ReactUnity {
       Values: System.Collections.Generic.ICollection<any>;
       Count: number;
       IsReadOnly: boolean;
-      OnExposedToScriptCode(engine: any): void;
       Add(key: string, value: any): void;
       Add(item: System.Collections.Generic.KeyValuePair<string, any>): void;
       Contains(item: System.Collections.Generic.KeyValuePair<string, any>): boolean;
@@ -8521,7 +8468,7 @@ export declare namespace ReactUnity {
       Content: string;
       InnerContent: string;
       ResolvedContent: string;
-      Image: any; // Unity.VectorGraphics.SVGImage
+      Image: UnityEngine.UI.Image;
       Replaced: ReactUnity.UGUI.BaseImageComponent_ReplacedImageHelper;
       Source: any; // System.Object
       GameObject: UnityEngine.GameObject;
@@ -8618,7 +8565,7 @@ export declare namespace ReactUnity {
     }
     export class SvgImageComponent {
       constructor(context: ReactUnity.UGUI.UGUIContext, tag?: string);
-      Image: any; // Unity.VectorGraphics.SVGImage
+      Image: UnityEngine.UI.Image;
       Replaced: ReactUnity.UGUI.BaseImageComponent_ReplacedImageHelper;
       Source: any; // System.Object
       GameObject: UnityEngine.GameObject;
@@ -9241,6 +9188,7 @@ export declare namespace ReactUnity {
       enabled: boolean;
       isActiveAndEnabled: boolean;
       transform: UnityEngine.Transform;
+      transformHandle: UnityEngine.TransformHandle;
       gameObject: UnityEngine.GameObject;
       tag: string;
       rigidbody: UnityEngine.Component;
@@ -9306,6 +9254,7 @@ export declare namespace ReactUnity {
       BroadcastMessage(methodName: string, parameter: any): void;
       BroadcastMessage(methodName: string): void;
       BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+      GetEntityId(): UnityEngine.EntityId;
       GetInstanceID(): number;
       GetHashCode(): number;
       Equals(other: any): boolean;
@@ -9440,6 +9389,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -9503,6 +9453,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -9520,6 +9471,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -9578,6 +9530,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -9594,6 +9547,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -9661,6 +9615,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -9689,6 +9644,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -9747,6 +9703,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -9766,6 +9723,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -9824,6 +9782,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -9840,6 +9799,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -9901,6 +9861,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -9919,6 +9880,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -9978,6 +9940,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -9995,6 +9958,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -10060,6 +10024,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -10111,6 +10076,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -10186,6 +10152,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -10220,6 +10187,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -10280,6 +10248,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -10296,6 +10265,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -10356,6 +10326,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -10372,6 +10343,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -10432,6 +10404,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -10448,6 +10421,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -10508,6 +10482,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -10524,6 +10499,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -10584,6 +10560,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -10600,6 +10577,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -10660,6 +10638,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -10676,6 +10655,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -10736,6 +10716,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -10752,6 +10733,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -10813,6 +10795,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -10829,6 +10812,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -10890,6 +10874,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -10923,6 +10908,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -10983,6 +10969,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -10999,6 +10986,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -11059,6 +11047,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -11075,6 +11064,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -11135,6 +11125,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -11151,6 +11142,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -11211,6 +11203,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -11227,6 +11220,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -11287,6 +11281,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -11303,6 +11298,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -11364,6 +11360,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -11380,6 +11377,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -11440,6 +11438,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -11456,6 +11455,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -11516,6 +11516,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -11532,6 +11533,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -11593,6 +11595,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -11621,6 +11624,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -11681,6 +11685,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -11697,6 +11702,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -11757,6 +11763,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -11773,6 +11780,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -11833,6 +11841,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -11849,6 +11858,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -11909,6 +11919,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -11947,6 +11958,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -12008,6 +12020,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -12024,6 +12037,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -12086,6 +12100,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -12115,6 +12130,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -12177,6 +12193,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -12193,6 +12210,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -12256,6 +12274,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -12272,6 +12291,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -12333,6 +12353,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -12400,6 +12421,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -12436,6 +12458,7 @@ export declare namespace ReactUnity {
         ParentMaskStateChanged(): void;
         RecalculateClipping(): void;
         RecalculateMasking(): void;
+        Raycast(sp: UnityEngine.Vector2, eventCamera: UnityEngine.Camera): boolean;
         SetAllDirty(): void;
         SetLayoutDirty(): void;
         SetVerticesDirty(): void;
@@ -12446,7 +12469,6 @@ export declare namespace ReactUnity {
         LayoutComplete(): void;
         GraphicUpdateComplete(): void;
         OnRebuildRequested(): void;
-        Raycast(sp: UnityEngine.Vector2, eventCamera: UnityEngine.Camera): boolean;
         PixelAdjustPoint(point: UnityEngine.Vector2): UnityEngine.Vector2;
         GetPixelAdjustedRect(): UnityEngine.Rect;
         CrossFadeColor(targetColor: UnityEngine.Color, duration: number, ignoreTimeScale: boolean, useAlpha: boolean): void;
@@ -12501,6 +12523,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -12535,6 +12558,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -12560,6 +12584,7 @@ export declare namespace ReactUnity {
         ParentMaskStateChanged(): void;
         RecalculateClipping(): void;
         RecalculateMasking(): void;
+        Raycast(sp: UnityEngine.Vector2, eventCamera: UnityEngine.Camera): boolean;
         SetAllDirty(): void;
         SetLayoutDirty(): void;
         SetVerticesDirty(): void;
@@ -12571,7 +12596,6 @@ export declare namespace ReactUnity {
         GraphicUpdateComplete(): void;
         OnRebuildRequested(): void;
         SetNativeSize(): void;
-        Raycast(sp: UnityEngine.Vector2, eventCamera: UnityEngine.Camera): boolean;
         PixelAdjustPoint(point: UnityEngine.Vector2): UnityEngine.Vector2;
         GetPixelAdjustedRect(): UnityEngine.Rect;
         CrossFadeColor(targetColor: UnityEngine.Color, duration: number, ignoreTimeScale: boolean, useAlpha: boolean): void;
@@ -12626,6 +12650,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -12658,6 +12683,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -12688,6 +12714,7 @@ export declare namespace ReactUnity {
         ParentMaskStateChanged(): void;
         RecalculateClipping(): void;
         RecalculateMasking(): void;
+        Raycast(sp: UnityEngine.Vector2, eventCamera: UnityEngine.Camera): boolean;
         SetAllDirty(): void;
         SetLayoutDirty(): void;
         SetVerticesDirty(): void;
@@ -12699,7 +12726,6 @@ export declare namespace ReactUnity {
         GraphicUpdateComplete(): void;
         OnRebuildRequested(): void;
         SetNativeSize(): void;
-        Raycast(sp: UnityEngine.Vector2, eventCamera: UnityEngine.Camera): boolean;
         PixelAdjustPoint(point: UnityEngine.Vector2): UnityEngine.Vector2;
         GetPixelAdjustedRect(): UnityEngine.Rect;
         CrossFadeColor(targetColor: UnityEngine.Color, duration: number, ignoreTimeScale: boolean, useAlpha: boolean): void;
@@ -12754,6 +12780,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -12786,6 +12813,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -12811,6 +12839,7 @@ export declare namespace ReactUnity {
         ParentMaskStateChanged(): void;
         RecalculateClipping(): void;
         RecalculateMasking(): void;
+        Raycast(sp: UnityEngine.Vector2, eventCamera: UnityEngine.Camera): boolean;
         SetAllDirty(): void;
         SetLayoutDirty(): void;
         SetVerticesDirty(): void;
@@ -12822,7 +12851,6 @@ export declare namespace ReactUnity {
         GraphicUpdateComplete(): void;
         OnRebuildRequested(): void;
         SetNativeSize(): void;
-        Raycast(sp: UnityEngine.Vector2, eventCamera: UnityEngine.Camera): boolean;
         PixelAdjustPoint(point: UnityEngine.Vector2): UnityEngine.Vector2;
         GetPixelAdjustedRect(): UnityEngine.Rect;
         CrossFadeColor(targetColor: UnityEngine.Color, duration: number, ignoreTimeScale: boolean, useAlpha: boolean): void;
@@ -12877,6 +12905,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -12951,6 +12980,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -12975,6 +13005,7 @@ export declare namespace ReactUnity {
         ParentMaskStateChanged(): void;
         RecalculateClipping(): void;
         RecalculateMasking(): void;
+        Raycast(sp: UnityEngine.Vector2, eventCamera: UnityEngine.Camera): boolean;
         SetAllDirty(): void;
         SetLayoutDirty(): void;
         SetVerticesDirty(): void;
@@ -12986,7 +13017,6 @@ export declare namespace ReactUnity {
         GraphicUpdateComplete(): void;
         OnRebuildRequested(): void;
         SetNativeSize(): void;
-        Raycast(sp: UnityEngine.Vector2, eventCamera: UnityEngine.Camera): boolean;
         PixelAdjustPoint(point: UnityEngine.Vector2): UnityEngine.Vector2;
         GetPixelAdjustedRect(): UnityEngine.Rect;
         CrossFadeColor(targetColor: UnityEngine.Color, duration: number, ignoreTimeScale: boolean, useAlpha: boolean): void;
@@ -13041,6 +13071,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -13119,6 +13150,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -13144,6 +13176,7 @@ export declare namespace ReactUnity {
         ParentMaskStateChanged(): void;
         RecalculateClipping(): void;
         RecalculateMasking(): void;
+        Raycast(sp: UnityEngine.Vector2, eventCamera: UnityEngine.Camera): boolean;
         SetAllDirty(): void;
         SetLayoutDirty(): void;
         SetVerticesDirty(): void;
@@ -13155,7 +13188,6 @@ export declare namespace ReactUnity {
         GraphicUpdateComplete(): void;
         OnRebuildRequested(): void;
         SetNativeSize(): void;
-        Raycast(sp: UnityEngine.Vector2, eventCamera: UnityEngine.Camera): boolean;
         PixelAdjustPoint(point: UnityEngine.Vector2): UnityEngine.Vector2;
         GetPixelAdjustedRect(): UnityEngine.Rect;
         CrossFadeColor(targetColor: UnityEngine.Color, duration: number, ignoreTimeScale: boolean, useAlpha: boolean): void;
@@ -13210,6 +13242,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -13252,6 +13285,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -13313,6 +13347,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -13331,6 +13366,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -13393,6 +13429,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -13409,6 +13446,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -13470,6 +13508,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -13486,6 +13525,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -13547,6 +13587,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -13563,6 +13604,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -13622,6 +13664,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -13638,6 +13681,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -13699,6 +13743,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -13715,6 +13760,7 @@ export declare namespace ReactUnity {
         enabled: boolean;
         isActiveAndEnabled: boolean;
         transform: UnityEngine.Transform;
+        transformHandle: UnityEngine.TransformHandle;
         gameObject: UnityEngine.GameObject;
         tag: string;
         rigidbody: UnityEngine.Component;
@@ -13776,6 +13822,7 @@ export declare namespace ReactUnity {
         BroadcastMessage(methodName: string, parameter: any): void;
         BroadcastMessage(methodName: string): void;
         BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+        GetEntityId(): UnityEngine.EntityId;
         GetInstanceID(): number;
         GetHashCode(): number;
         Equals(other: any): boolean;
@@ -15619,6 +15666,7 @@ export declare namespace ReactUnity {
       enabled: boolean;
       isActiveAndEnabled: boolean;
       transform: UnityEngine.Transform;
+      transformHandle: UnityEngine.TransformHandle;
       gameObject: UnityEngine.GameObject;
       tag: string;
       rigidbody: UnityEngine.Component;
@@ -15684,6 +15732,7 @@ export declare namespace ReactUnity {
       BroadcastMessage(methodName: string, parameter: any): void;
       BroadcastMessage(methodName: string): void;
       BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+      GetEntityId(): UnityEngine.EntityId;
       GetInstanceID(): number;
       GetHashCode(): number;
       Equals(other: any): boolean;
@@ -15713,6 +15762,14 @@ export declare namespace ReactUnity {
       worldBound: UnityEngine.Rect;
       localBound: UnityEngine.Rect;
       worldTransform: UnityEngine.Matrix4x4;
+      hasActivePseudoState: boolean;
+      hasInactivePseudoState: boolean;
+      hasHoverPseudoState: boolean;
+      hasCheckedPseudoState: boolean;
+      hasEnabledPseudoState: boolean;
+      hasDisabledPseudoState: boolean;
+      hasFocusPseudoState: boolean;
+      hasRootPseudoState: boolean;
       pickingMode: UnityEngine.UIElements.PickingMode;
       name: string;
       enabledInHierarchy: boolean;
@@ -15745,10 +15802,13 @@ export declare namespace ReactUnity {
       Run(): void;
       Destroy(): void;
       Restart(): void;
+      SetActivePseudoState(value: boolean): void;
+      SetCheckedPseudoState(value: boolean): void;
       Focus(): void;
       SendEvent(e: UnityEngine.UIElements.EventBase): void;
       SetEnabled(value: boolean): void;
       MarkDirtyRepaint(): void;
+      IsMarkedForRepaint(): boolean;
       ContainsPoint(localPoint: UnityEngine.Vector2): boolean;
       Overlaps(rectangle: UnityEngine.Rect): boolean;
       ToString(): string;
@@ -15763,6 +15823,7 @@ export declare namespace ReactUnity {
       SetBinding(bindingId: UnityEngine.UIElements.BindingId, binding: UnityEngine.UIElements.Binding): void;
       GetBinding(bindingId: UnityEngine.UIElements.BindingId): UnityEngine.UIElements.Binding;
       GetBindingInfos(): System.Collections.Generic.IEnumerable<UnityEngine.UIElements.BindingInfo>;
+      GetBindingInfos(bindingInfos: UnityEngine.UIElements.BindingInfo[]): void;
       HasBinding(bindingId: UnityEngine.UIElements.BindingId): boolean;
       ClearBinding(bindingId: UnityEngine.UIElements.BindingId): void;
       ClearBindings(): void;
@@ -15913,6 +15974,14 @@ export declare namespace ReactUnity {
       worldBound: UnityEngine.Rect;
       localBound: UnityEngine.Rect;
       worldTransform: UnityEngine.Matrix4x4;
+      hasActivePseudoState: boolean;
+      hasInactivePseudoState: boolean;
+      hasHoverPseudoState: boolean;
+      hasCheckedPseudoState: boolean;
+      hasEnabledPseudoState: boolean;
+      hasDisabledPseudoState: boolean;
+      hasFocusPseudoState: boolean;
+      hasRootPseudoState: boolean;
       pickingMode: UnityEngine.UIElements.PickingMode;
       name: string;
       enabledInHierarchy: boolean;
@@ -15940,10 +16009,13 @@ export declare namespace ReactUnity {
       focusable: boolean;
       tabIndex: number;
       delegatesFocus: boolean;
+      SetActivePseudoState(value: boolean): void;
+      SetCheckedPseudoState(value: boolean): void;
       Focus(): void;
       SendEvent(e: UnityEngine.UIElements.EventBase): void;
       SetEnabled(value: boolean): void;
       MarkDirtyRepaint(): void;
+      IsMarkedForRepaint(): boolean;
       ContainsPoint(localPoint: UnityEngine.Vector2): boolean;
       Overlaps(rectangle: UnityEngine.Rect): boolean;
       ToString(): string;
@@ -15958,6 +16030,7 @@ export declare namespace ReactUnity {
       SetBinding(bindingId: UnityEngine.UIElements.BindingId, binding: UnityEngine.UIElements.Binding): void;
       GetBinding(bindingId: UnityEngine.UIElements.BindingId): UnityEngine.UIElements.Binding;
       GetBindingInfos(): System.Collections.Generic.IEnumerable<UnityEngine.UIElements.BindingInfo>;
+      GetBindingInfos(bindingInfos: UnityEngine.UIElements.BindingInfo[]): void;
       HasBinding(bindingId: UnityEngine.UIElements.BindingId): boolean;
       ClearBinding(bindingId: UnityEngine.UIElements.BindingId): void;
       ClearBindings(): void;

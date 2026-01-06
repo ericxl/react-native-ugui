@@ -26,7 +26,7 @@ namespace ReactUnity.Editor.Developer
             }
 
             GenerateUnity(Path.Combine(directory, "unity.ts"));
-            GenerateEditor(Path.Combine(directory, "editor.ts"));
+            // GenerateEditor(Path.Combine(directory, "editor.ts"));
             GenerateReactUnity(Path.Combine(directory, "react.ts"));
             GenerateYoga(Path.Combine(directory, "yoga.ts"));
             GenerateSystem(Path.Combine(directory, "system.ts"));

@@ -1,6 +1,6 @@
 //
 // Types in assemblies: mscorlib, System.Core, System
-// Generated 01/07/2025 01:03:18
+// Generated 1/5/2026 10:40:48 PM
 //
 /* eslint-disable */
 
@@ -17126,10 +17126,10 @@ export declare namespace System {
     }
     export namespace Enumeration {
       export class FileSystemEntry {
+        FileName: System.ReadOnlySpan<System.Char>;
         Directory: System.ReadOnlySpan<System.Char>;
         RootDirectory: System.ReadOnlySpan<System.Char>;
         OriginalRootDirectory: System.ReadOnlySpan<System.Char>;
-        FileName: System.ReadOnlySpan<System.Char>;
         Attributes: System.IO.FileAttributes;
         Length: number;
         CreationTimeUtc: System.DateTimeOffset;
@@ -17725,9 +17725,9 @@ export declare namespace System {
         constructor(direction: System.IO.Pipes.PipeDirection, isAsync: boolean, isConnected: boolean, safePipeHandle: any);
         constructor(serverName: string, pipeName: string, desiredAccessRights: System.IO.Pipes.PipeAccessRights, options: System.IO.Pipes.PipeOptions, impersonationLevel: System.Security.Principal.TokenImpersonationLevel, inheritability: System.IO.HandleInheritability);
         NumberOfServerInstances: number;
-        TransmissionMode: System.IO.Pipes.PipeTransmissionMode;
         InBufferSize: number;
         OutBufferSize: number;
+        TransmissionMode: System.IO.Pipes.PipeTransmissionMode;
         ReadMode: System.IO.Pipes.PipeTransmissionMode;
         IsConnected: boolean;
         IsAsync: boolean;
@@ -17799,9 +17799,9 @@ export declare namespace System {
         constructor(pipeName: string, direction: System.IO.Pipes.PipeDirection, maxNumberOfServerInstances: number, transmissionMode: System.IO.Pipes.PipeTransmissionMode, options: System.IO.Pipes.PipeOptions, inBufferSize: number, outBufferSize: number, pipeSecurity: System.IO.Pipes.PipeSecurity);
         constructor(pipeName: string, direction: System.IO.Pipes.PipeDirection, maxNumberOfServerInstances: number, transmissionMode: System.IO.Pipes.PipeTransmissionMode, options: System.IO.Pipes.PipeOptions, inBufferSize: number, outBufferSize: number, pipeSecurity: System.IO.Pipes.PipeSecurity, inheritability: System.IO.HandleInheritability);
         constructor(pipeName: string, direction: System.IO.Pipes.PipeDirection, maxNumberOfServerInstances: number, transmissionMode: System.IO.Pipes.PipeTransmissionMode, options: System.IO.Pipes.PipeOptions, inBufferSize: number, outBufferSize: number, pipeSecurity: System.IO.Pipes.PipeSecurity, inheritability: System.IO.HandleInheritability, additionalAccessRights: System.IO.Pipes.PipeAccessRights);
-        TransmissionMode: System.IO.Pipes.PipeTransmissionMode;
         InBufferSize: number;
         OutBufferSize: number;
+        TransmissionMode: System.IO.Pipes.PipeTransmissionMode;
         ReadMode: System.IO.Pipes.PipeTransmissionMode;
         IsConnected: boolean;
         IsAsync: boolean;
@@ -22638,12 +22638,6 @@ export declare namespace System {
     export class MemoryFailPoint {
       constructor(sizeInMegabytes: number);
       Dispose(): void;
-      Equals(obj: any): boolean;
-      GetHashCode(): number;
-      GetType(): System.Type;
-      ToString(): string;
-    }
-    export class RuntimeImports {
       Equals(obj: any): boolean;
       GetHashCode(): number;
       GetType(): System.Type;
@@ -27893,79 +27887,6 @@ export declare namespace System {
       ToString(): string;
     }
     export namespace AccessControl {
-      export class RegistrySecurity {
-        constructor();
-        AccessRightType: System.Type;
-        AccessRuleType: System.Type;
-        AuditRuleType: System.Type;
-        AreAccessRulesCanonical: boolean;
-        AreAccessRulesProtected: boolean;
-        AreAuditRulesCanonical: boolean;
-        AreAuditRulesProtected: boolean;
-        AccessRuleFactory(identityReference: System.Security.Principal.IdentityReference, accessMask: number, isInherited: boolean, inheritanceFlags: System.Security.AccessControl.InheritanceFlags, propagationFlags: System.Security.AccessControl.PropagationFlags, type: System.Security.AccessControl.AccessControlType): System.Security.AccessControl.AccessRule;
-        AuditRuleFactory(identityReference: System.Security.Principal.IdentityReference, accessMask: number, isInherited: boolean, inheritanceFlags: System.Security.AccessControl.InheritanceFlags, propagationFlags: System.Security.AccessControl.PropagationFlags, flags: System.Security.AccessControl.AuditFlags): System.Security.AccessControl.AuditRule;
-        AddAccessRule(rule: System.Security.AccessControl.RegistryAccessRule): void;
-        SetAccessRule(rule: System.Security.AccessControl.RegistryAccessRule): void;
-        ResetAccessRule(rule: System.Security.AccessControl.RegistryAccessRule): void;
-        RemoveAccessRule(rule: System.Security.AccessControl.RegistryAccessRule): boolean;
-        RemoveAccessRuleAll(rule: System.Security.AccessControl.RegistryAccessRule): void;
-        RemoveAccessRuleSpecific(rule: System.Security.AccessControl.RegistryAccessRule): void;
-        AddAuditRule(rule: System.Security.AccessControl.RegistryAuditRule): void;
-        SetAuditRule(rule: System.Security.AccessControl.RegistryAuditRule): void;
-        RemoveAuditRule(rule: System.Security.AccessControl.RegistryAuditRule): boolean;
-        RemoveAuditRuleAll(rule: System.Security.AccessControl.RegistryAuditRule): void;
-        RemoveAuditRuleSpecific(rule: System.Security.AccessControl.RegistryAuditRule): void;
-        GetAccessRules(includeExplicit: boolean, includeInherited: boolean, targetType: System.Type): System.Security.AccessControl.AuthorizationRuleCollection;
-        GetAuditRules(includeExplicit: boolean, includeInherited: boolean, targetType: System.Type): System.Security.AccessControl.AuthorizationRuleCollection;
-        GetGroup(targetType: System.Type): System.Security.Principal.IdentityReference;
-        GetOwner(targetType: System.Type): System.Security.Principal.IdentityReference;
-        GetSecurityDescriptorBinaryForm(): Byte[];
-        GetSecurityDescriptorSddlForm(includeSections: System.Security.AccessControl.AccessControlSections): string;
-        PurgeAccessRules(identity: System.Security.Principal.IdentityReference): void;
-        PurgeAuditRules(identity: System.Security.Principal.IdentityReference): void;
-        SetAccessRuleProtection(isProtected: boolean, preserveInheritance: boolean): void;
-        SetAuditRuleProtection(isProtected: boolean, preserveInheritance: boolean): void;
-        SetGroup(identity: System.Security.Principal.IdentityReference): void;
-        SetOwner(identity: System.Security.Principal.IdentityReference): void;
-        SetSecurityDescriptorBinaryForm(binaryForm: Byte[]): void;
-        SetSecurityDescriptorBinaryForm(binaryForm: Byte[], includeSections: System.Security.AccessControl.AccessControlSections): void;
-        SetSecurityDescriptorSddlForm(sddlForm: string): void;
-        SetSecurityDescriptorSddlForm(sddlForm: string, includeSections: System.Security.AccessControl.AccessControlSections): void;
-        Equals(obj: any): boolean;
-        GetHashCode(): number;
-        GetType(): System.Type;
-        ToString(): string;
-      }
-      export class RegistryAccessRule {
-        constructor(identity: System.Security.Principal.IdentityReference, registryRights: System.Security.AccessControl.RegistryRights, type: System.Security.AccessControl.AccessControlType);
-        constructor(identity: string, registryRights: System.Security.AccessControl.RegistryRights, type: System.Security.AccessControl.AccessControlType);
-        constructor(identity: System.Security.Principal.IdentityReference, registryRights: System.Security.AccessControl.RegistryRights, inheritanceFlags: System.Security.AccessControl.InheritanceFlags, propagationFlags: System.Security.AccessControl.PropagationFlags, type: System.Security.AccessControl.AccessControlType);
-        constructor(identity: string, registryRights: System.Security.AccessControl.RegistryRights, inheritanceFlags: System.Security.AccessControl.InheritanceFlags, propagationFlags: System.Security.AccessControl.PropagationFlags, type: System.Security.AccessControl.AccessControlType);
-        RegistryRights: System.Security.AccessControl.RegistryRights;
-        AccessControlType: System.Security.AccessControl.AccessControlType;
-        IdentityReference: System.Security.Principal.IdentityReference;
-        InheritanceFlags: System.Security.AccessControl.InheritanceFlags;
-        IsInherited: boolean;
-        PropagationFlags: System.Security.AccessControl.PropagationFlags;
-        Equals(obj: any): boolean;
-        GetHashCode(): number;
-        GetType(): System.Type;
-        ToString(): string;
-      }
-      export class RegistryAuditRule {
-        constructor(identity: System.Security.Principal.IdentityReference, registryRights: System.Security.AccessControl.RegistryRights, inheritanceFlags: System.Security.AccessControl.InheritanceFlags, propagationFlags: System.Security.AccessControl.PropagationFlags, flags: System.Security.AccessControl.AuditFlags);
-        constructor(identity: string, registryRights: System.Security.AccessControl.RegistryRights, inheritanceFlags: System.Security.AccessControl.InheritanceFlags, propagationFlags: System.Security.AccessControl.PropagationFlags, flags: System.Security.AccessControl.AuditFlags);
-        RegistryRights: System.Security.AccessControl.RegistryRights;
-        AuditFlags: System.Security.AccessControl.AuditFlags;
-        IdentityReference: System.Security.Principal.IdentityReference;
-        InheritanceFlags: System.Security.AccessControl.InheritanceFlags;
-        IsInherited: boolean;
-        PropagationFlags: System.Security.AccessControl.PropagationFlags;
-        Equals(obj: any): boolean;
-        GetHashCode(): number;
-        GetType(): System.Type;
-        ToString(): string;
-      }
       export class PrivilegeNotHeldException {
         constructor();
         constructor(privilege: string);
@@ -29049,6 +28970,36 @@ export declare namespace System {
         GetType(): System.Type;
         ToString(): string;
       }
+      export class RegistryAccessRule {
+        constructor(identity: System.Security.Principal.IdentityReference, registryRights: System.Security.AccessControl.RegistryRights, type: System.Security.AccessControl.AccessControlType);
+        constructor(identity: string, registryRights: System.Security.AccessControl.RegistryRights, type: System.Security.AccessControl.AccessControlType);
+        constructor(identity: System.Security.Principal.IdentityReference, registryRights: System.Security.AccessControl.RegistryRights, inheritanceFlags: System.Security.AccessControl.InheritanceFlags, propagationFlags: System.Security.AccessControl.PropagationFlags, type: System.Security.AccessControl.AccessControlType);
+        constructor(identity: string, registryRights: System.Security.AccessControl.RegistryRights, inheritanceFlags: System.Security.AccessControl.InheritanceFlags, propagationFlags: System.Security.AccessControl.PropagationFlags, type: System.Security.AccessControl.AccessControlType);
+        RegistryRights: System.Security.AccessControl.RegistryRights;
+        AccessControlType: System.Security.AccessControl.AccessControlType;
+        IdentityReference: System.Security.Principal.IdentityReference;
+        InheritanceFlags: System.Security.AccessControl.InheritanceFlags;
+        IsInherited: boolean;
+        PropagationFlags: System.Security.AccessControl.PropagationFlags;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
+        GetType(): System.Type;
+        ToString(): string;
+      }
+      export class RegistryAuditRule {
+        constructor(identity: System.Security.Principal.IdentityReference, registryRights: System.Security.AccessControl.RegistryRights, inheritanceFlags: System.Security.AccessControl.InheritanceFlags, propagationFlags: System.Security.AccessControl.PropagationFlags, flags: System.Security.AccessControl.AuditFlags);
+        constructor(identity: string, registryRights: System.Security.AccessControl.RegistryRights, inheritanceFlags: System.Security.AccessControl.InheritanceFlags, propagationFlags: System.Security.AccessControl.PropagationFlags, flags: System.Security.AccessControl.AuditFlags);
+        RegistryRights: System.Security.AccessControl.RegistryRights;
+        AuditFlags: System.Security.AccessControl.AuditFlags;
+        IdentityReference: System.Security.Principal.IdentityReference;
+        InheritanceFlags: System.Security.AccessControl.InheritanceFlags;
+        IsInherited: boolean;
+        PropagationFlags: System.Security.AccessControl.PropagationFlags;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
+        GetType(): System.Type;
+        ToString(): string;
+      }
       export enum RegistryRights {
         QueryValues = 1,
         SetValue = 2,
@@ -29064,6 +29015,49 @@ export declare namespace System {
         ChangePermissions = 262144,
         TakeOwnership = 524288,
         FullControl = 983103,
+      }
+      export class RegistrySecurity {
+        constructor();
+        AccessRightType: System.Type;
+        AccessRuleType: System.Type;
+        AuditRuleType: System.Type;
+        AreAccessRulesCanonical: boolean;
+        AreAccessRulesProtected: boolean;
+        AreAuditRulesCanonical: boolean;
+        AreAuditRulesProtected: boolean;
+        AccessRuleFactory(identityReference: System.Security.Principal.IdentityReference, accessMask: number, isInherited: boolean, inheritanceFlags: System.Security.AccessControl.InheritanceFlags, propagationFlags: System.Security.AccessControl.PropagationFlags, type: System.Security.AccessControl.AccessControlType): System.Security.AccessControl.AccessRule;
+        AddAccessRule(rule: System.Security.AccessControl.RegistryAccessRule): void;
+        RemoveAccessRule(rule: System.Security.AccessControl.RegistryAccessRule): boolean;
+        RemoveAccessRuleAll(rule: System.Security.AccessControl.RegistryAccessRule): void;
+        RemoveAccessRuleSpecific(rule: System.Security.AccessControl.RegistryAccessRule): void;
+        ResetAccessRule(rule: System.Security.AccessControl.RegistryAccessRule): void;
+        SetAccessRule(rule: System.Security.AccessControl.RegistryAccessRule): void;
+        AuditRuleFactory(identityReference: System.Security.Principal.IdentityReference, accessMask: number, isInherited: boolean, inheritanceFlags: System.Security.AccessControl.InheritanceFlags, propagationFlags: System.Security.AccessControl.PropagationFlags, flags: System.Security.AccessControl.AuditFlags): System.Security.AccessControl.AuditRule;
+        AddAuditRule(rule: System.Security.AccessControl.RegistryAuditRule): void;
+        RemoveAuditRule(rule: System.Security.AccessControl.RegistryAuditRule): boolean;
+        RemoveAuditRuleAll(rule: System.Security.AccessControl.RegistryAuditRule): void;
+        RemoveAuditRuleSpecific(rule: System.Security.AccessControl.RegistryAuditRule): void;
+        SetAuditRule(rule: System.Security.AccessControl.RegistryAuditRule): void;
+        GetAccessRules(includeExplicit: boolean, includeInherited: boolean, targetType: System.Type): System.Security.AccessControl.AuthorizationRuleCollection;
+        GetAuditRules(includeExplicit: boolean, includeInherited: boolean, targetType: System.Type): System.Security.AccessControl.AuthorizationRuleCollection;
+        GetGroup(targetType: System.Type): System.Security.Principal.IdentityReference;
+        GetOwner(targetType: System.Type): System.Security.Principal.IdentityReference;
+        GetSecurityDescriptorBinaryForm(): Byte[];
+        GetSecurityDescriptorSddlForm(includeSections: System.Security.AccessControl.AccessControlSections): string;
+        PurgeAccessRules(identity: System.Security.Principal.IdentityReference): void;
+        PurgeAuditRules(identity: System.Security.Principal.IdentityReference): void;
+        SetAccessRuleProtection(isProtected: boolean, preserveInheritance: boolean): void;
+        SetAuditRuleProtection(isProtected: boolean, preserveInheritance: boolean): void;
+        SetGroup(identity: System.Security.Principal.IdentityReference): void;
+        SetOwner(identity: System.Security.Principal.IdentityReference): void;
+        SetSecurityDescriptorBinaryForm(binaryForm: Byte[]): void;
+        SetSecurityDescriptorBinaryForm(binaryForm: Byte[], includeSections: System.Security.AccessControl.AccessControlSections): void;
+        SetSecurityDescriptorSddlForm(sddlForm: string): void;
+        SetSecurityDescriptorSddlForm(sddlForm: string, includeSections: System.Security.AccessControl.AccessControlSections): void;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
+        GetType(): System.Type;
+        ToString(): string;
       }
       export enum ResourceType {
         Unknown = 0,
@@ -35836,23 +35830,6 @@ export declare namespace System {
       ToString(): string;
       GetType(): System.Type;
     }
-    export class ThreadPoolBoundHandle {
-      Handle: System.Runtime.InteropServices.SafeHandle;
-      static BindHandle(handle: System.Runtime.InteropServices.SafeHandle): System.Threading.ThreadPoolBoundHandle;
-      Dispose(): void;
-      Equals(obj: any): boolean;
-      GetHashCode(): number;
-      GetType(): System.Type;
-      ToString(): string;
-    }
-    export class PreAllocatedOverlapped {
-      constructor(callback: ((errorCode: number, numBytes: number, pOVERLAP: Pointer<System.Threading.NativeOverlapped>) => void), state: any, pinData: any);
-      Dispose(): void;
-      Equals(obj: any): boolean;
-      GetHashCode(): number;
-      GetType(): System.Type;
-      ToString(): string;
-    }
     export class Lock {
       constructor();
       Acquire(): void;
@@ -36373,6 +36350,23 @@ export declare namespace System {
       ToString(): string;
     }
     export class Volatile {
+      Equals(obj: any): boolean;
+      GetHashCode(): number;
+      GetType(): System.Type;
+      ToString(): string;
+    }
+    export class PreAllocatedOverlapped {
+      constructor(callback: ((errorCode: number, numBytes: number, pOVERLAP: Pointer<System.Threading.NativeOverlapped>) => void), state: any, pinData: any);
+      Dispose(): void;
+      Equals(obj: any): boolean;
+      GetHashCode(): number;
+      GetType(): System.Type;
+      ToString(): string;
+    }
+    export class ThreadPoolBoundHandle {
+      Handle: System.Runtime.InteropServices.SafeHandle;
+      static BindHandle(handle: System.Runtime.InteropServices.SafeHandle): System.Threading.ThreadPoolBoundHandle;
+      Dispose(): void;
       Equals(obj: any): boolean;
       GetHashCode(): number;
       GetType(): System.Type;
