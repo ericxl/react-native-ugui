@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(tree:*)",
+      "Bash(grep:*)",
+      "Bash(pnpm test:*)",
+      "Bash(xargs cat:*)",
+      "Bash(pnpm build:*)",
+      "WebFetch(domain:docs.unity3d.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:*.github.io)",
+      "WebFetch(domain:reactunity.github.io)"
+    ]
+  },
+  "outputStyle": "default"
+}
